@@ -13,51 +13,55 @@ body, html {
 }
 
 .envelope {
-    width: 200px; /* Adjust size as needed */
+    width: 200px;
+    height: 120px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    position: relative;
     cursor: pointer;
     transition: transform 0.5s ease-in-out;
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-right: 80px solid #ffffff;
+    top: 0;
+    right: -40px;
 }
 
 .envelope.flipped {
     transform: rotateY(180deg);
 }
 
-.envelope.opened {
-    transform: rotateY(180deg) rotateX(-90deg);
-    transition: transform 1s ease-in-out;
-}
-
-.invitation {
-    display: none;
+.invitation, .details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
 
-.invitation img {
-    max-width: 300px; /* Adjust size as needed */
-    transition: transform 1s ease-in-out;
+.invitation-content, .details-content {
+    padding: 20px;
 }
 
-.invitation.hidden {
+.hidden {
     display: none;
 }
 
-.invitation.flipped img {
-    transform: rotate(90deg);
+#details-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
-.details {
-    display: none;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.details img {
-    max-width: 300px; /* Adjust size as needed */
-}
-
-.details.hidden {
-    display: none;
+#details-link:hover {
+    color: navy;
 }
