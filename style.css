@@ -1,67 +1,53 @@
-body, html {
+body {
     margin: 0;
     padding: 0;
-    height: 100%;
-}
-
-.landing-page {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    background-color: #f0f0f0;
+    height: 100vh;
+    background-color: #f4f4f4;
 }
 
 .envelope {
     width: 200px;
-    height: 120px;
-    background-color: #ffffff;
-    border: 2px solid #000000;
+    height: 130px;
+    background-color: #f5deb3;
     position: relative;
-    cursor: pointer;
-    transition: transform 0.5s ease-in-out;
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
 }
 
-.envelope::after {
-    content: "";
-    position: absolute;
+.flap {
     width: 0;
     height: 0;
-    border-top: 60px solid transparent;
-    border-bottom: 60px solid transparent;
-    border-right: 80px solid #ffffff;
-    top: 0;
-    right: -40px;
-}
-
-.envelope.flipped {
-    transform: rotateY(180deg);
-}
-
-.invitation, .details {
+    border-top: 30px solid transparent;
+    border-right: 80px solid #f5deb3;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+    top: -30px;
+    left: 40px;
+    transform-origin: top right;
+    transition: transform 0.5s ease;
 }
 
-.invitation-content, .details-content {
-    padding: 20px;
-}
-
-.hidden {
+.letter {
+    width: 160px;
+    height: 100px;
+    background-color: white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
     display: none;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 }
 
-#details-link {
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
+.envelope:hover .flap {
+    transform: rotateY(-180deg);
 }
 
-#details-link:hover {
-    color: navy;
+.envelope:hover .letter {
+    display: block;
 }
