@@ -7,6 +7,54 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<div class="landing-page">
+    <img src="envelopefront.png" alt="Envelope Front" class="envelope" id="envelope">
+</div>
+
+<div class="invitation hidden" id="invitation">
+    <img src="invitation.png" alt="Invitation">
+    <p>Click here for more details</p>
+</div>
+
+<div class="details hidden" id="details">
+    <img src="details.png" alt="Details">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var envelope = document.getElementById('envelope');
+        var invitation = document.getElementById('invitation');
+        var details = document.getElementById('details');
+
+        envelope.addEventListener('click', function() {
+            envelope.classList.add('flipped');
+            setTimeout(function() {
+                envelope.classList.add('opened');
+                invitation.classList.remove('hidden');
+            }, 1000);
+        });
+
+        invitation.addEventListener('click', function() {
+            invitation.classList.add('flipped');
+            setTimeout(function() {
+                details.classList.remove('hidden');
+            }, 1000);
+        });
+    });
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 <div class="invitation">
     <h1>Welcome to Our Special Event!</h1>
     <p>You are cordially invited to join us for an evening of celebration and joy.</p>
