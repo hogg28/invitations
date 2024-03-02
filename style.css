@@ -30,6 +30,8 @@ body, html {
 .invitation {
     display: none;
     text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 .invitation img {
@@ -48,6 +50,8 @@ body, html {
 .details {
     display: none;
     text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 .details img {
