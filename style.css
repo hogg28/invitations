@@ -15,13 +15,13 @@ body {
 }
 
 .wrapper {
-  height: 200px;
-  width: 300px;
-  background-color: #3760C9;
   position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #c8a2c8;
   display: flex;
   justify-content: center;
-  z-index: 0;
+  align-items: center;
 }
 
 .lid {
@@ -37,22 +37,6 @@ body {
   transition: transform 0.25s linear;
 }
 
-/* Lid when closed */
-.lid.one {
-  border-top: 100px solid #658ced;
-  transform: rotateX(0deg);
-  z-index: 3;
-  transition-delay: 0.75s;
-}
-
-/* Lid when opened */
-.lid.two {
-  border-top: 100px solid #3760C9;
-  transform: rotateX(90deg);
-  z-index: 1;
-  transition-delay: 0.5s;
-}
-
 .envelope {
   position: absolute;
   height: 100%;
@@ -60,10 +44,24 @@ body {
   top: 0;
   left: 0;
   border-top: 100px solid transparent;
-  border-right: 150px solid #C4DFF0;
-  border-bottom: 100px solid #C4DFF0;
-  border-left: 150px solid #a4d4f2;
+  border-right: 150px solid #f8c6c8; /* Pastel pink right side */
+  border-bottom: 100px solid #f8c6c8; /* Pastel pink bottom */
+  border-left: 150px solid #f8c6c8; /* Pastel pink left side */
   z-index: 3;
+}
+
+.lid.one {
+  border-top: 100px solid #f9dada; /* Slightly lighter pastel pink for variety */
+  transform: rotateX(0deg);
+  z-index: 3;
+  transition-delay: 0.75s;
+}
+
+.lid.two {
+  border-top: 100px solid #f7b2b4; /* Slightly darker pastel pink for depth */
+  transform: rotateX(90deg);
+  z-index: 1;
+  transition-delay: 0.5s;
 }
 
 .letter {
@@ -81,20 +79,97 @@ body {
   text-align: center;
   font-size: 30px;
   margin-top: 30px;
-  color: #3B4049;
+  color: #6A397B;
 }
 
 .wrapper:hover .lid.one {
-    transform: rotateX(90deg);
-    transition-delay: 0s;
+  transform: rotateX(90deg);
+  transition-delay: 0s;
 }
 
 .wrapper:hover .lid.two {
-    transform: rotateX(180deg);
-    transition-delay: 0.25s;
+  transform: rotateX(180deg);
+  transition-delay: 0.25s;
 }
 
 .wrapper:hover .letter {
   transform: translateY(-50px);
   transition-delay: 0.5s;
+}
+
+.wax-seal {
+  position: absolute;
+  bottom: -20px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 50px;
+  height: 50px;
+  background-color: #7D5BA6;
+  border-radius: 50%;
+  z-index: 4;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.wrapper:hover .wax-seal {
+  visibility: hidden;
+}
+
+.wax-seal::after {
+  content: 'J & J';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Lobster', cursive;
+  font-size: 11px;
+  color: white;
+}
+
+.horizontal-rectangle {
+  position: absolute;
+  width: 275px;
+  height: 175px;
+  background-image: url('rectangle-image.png');
+  background-size: cover;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: transform 1s ease-out;
+}
+
+.wrapper.closed .lid,
+.wrapper.closed .envelope,
+.wrapper.closed .wax-seal {
+  opacity: 0;
+}
+
+.details-text {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 100px); /* Adjust the position as needed */
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Additional styles for the backside of the rectangle */
+.horizontal-rectangle.backside {
+    background-image: url('backside-image.png');
+    /* Additional styles for the backside */
+}
+
+.details-text {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 150px); /* Adjust the position as needed */
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.back-text {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 200px); /* Adjust the position as needed */
+    transform: translateY(-50%);
+    cursor: pointer;
 }
