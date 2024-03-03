@@ -127,15 +127,20 @@ body {
 
 .horizontal-rectangle {
   position: absolute;
-  width: 275px;
-  height: 175px;
-  background-image: url('rectangle-image.png');
-  background-size: cover;
-  background-color: white;
+  width: 275px; /* Initial width */
+  height: 175px; /* Initial height */
+  background-image: url('Invitation.png'); /* Your background image */
+  background-size: cover; /* Cover the entire container */
+  background-repeat: no-repeat; /* Prevent repetition */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(0deg);
-  transition: transform 1s ease-out;
+  transition: transform 1s ease-out, width 1s ease-out, height 1s ease-out; /* Add transitions */
+}
+
+.wrapper:hover .horizontal-rectangle {
+  width: 100%; /* Expand width to 100% on hover */
+  height: 100%; /* Expand height to 100% on hover */
 }
 
 .wrapper.closed .lid,
